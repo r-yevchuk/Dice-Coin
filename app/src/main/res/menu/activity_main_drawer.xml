@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/item0"
+            android:icon="@drawable/ic_menu_item0"
+            android:title="Dice" />
+        <!--<item
+            android:id="@+id/item1"
+            android:icon="@drawable/ic_menu_item1"
+            android:title="Dice 12" /> -->
+        <item
+            android:id="@+id/item2"
+            android:icon="@drawable/ic_menu_item2"
+            android:title="Coin" />
+        <item
+            android:id="@+id/item3"
+            android:icon="@drawable/ic_menu_item3"
+            android:title="Arrow" />
+        <item
+            android:id="@+id/item4"
+            android:icon="@drawable/ic_menu_item4"
+            android:title="Numbers" />
+        <item
+            android:id="@+id/item5"
+            android:icon="@drawable/ic_menu_item5"
+            android:title="YES or NO" />
+    </group>
+
+</menu>

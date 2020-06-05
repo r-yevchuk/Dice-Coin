@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="animation"
+        android:summary="The animation show when rolling dice."
+        android:title="Animation"/>
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="sound"
+        android:summary="The sound heard while rolling dice."
+        android:title="Rolling sound"/>
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="shake"
+        android:summary="Shake your device to roll."
+        android:title="Shake to roll"/>
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="vibration"
+        android:summary="The vibration effect during roll."
+        android:title="Vibration"/>
+</PreferenceScreen>

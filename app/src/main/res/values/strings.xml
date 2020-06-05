@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Dice + Coin</string>
+
+    <string name="text_yes">YES</string>
+    <string name="text_no">NO</string>
+    <string name="message_new_dice">Please press \"+\" to add a new Dice</string>
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base theme colors -->
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!-- Other colors -->
+    <color name="just_color">#43CD80</color>
+    <color name="red">#ff0000</color>
+    <color name="snow2">#eee9e9</color>
+    <color name="light_coral">#ff8080</color>
+    <color name="light_gray">#D3D3D3</color>
+    <color name="cornflower_blue">#36648B</color>
+    <color name="grey">#BEBEBE</color>
+
+    <!-- Component colors  -->
+    <color name="drop">#d5d5ff</color>
+    <color name="background">#66CDAA</color>
+
+    <!-- Yes or No text color -->
+    <color name="brown">#A52A2A</color>
+    <color name="olive_drab4">#698B22</color>
+
+    <!-- Divider color -->
+    <color name="mBlack">#000000</color>
+
+    <!-- Dice 12 text color -->
+    <color name="blue">#0000FF</color>
+</resources>
