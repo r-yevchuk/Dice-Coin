@@ -57,7 +57,7 @@ public class Sound {
     // Play sound or init and play
     public void play(final E_SOUND sound, Context context) {
         if (SettingsActivity.PREFERENCES_SOUND ) {
-            // check if sound loaded, if no init again
+            // Check if sound loaded, if no init again
             if (load) {
                 int id = sound.ordinal();
                 soundPool.play(soundPoolMap.get(id), 1, 1, 1, 0, 1f);

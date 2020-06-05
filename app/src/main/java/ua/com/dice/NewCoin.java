@@ -5,13 +5,14 @@ import android.os.Handler;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-
 import ua.com.dice.base.AbstractItem;
 
 class NewCoin extends AbstractItem {
-    private ImageView ivCoin;
-    private int randomValue, coinWidth, newCoinWidth;
-    private ImageButton btDrop;
+    private final ImageView ivCoin;
+    private final int coinWidth;
+    private final int newCoinWidth;
+    private final ImageButton btDrop;
+    private int randomValue;
 
     NewCoin(Activity activity) {
         super(activity);
@@ -28,7 +29,7 @@ class NewCoin extends AbstractItem {
         ivCoin.setImageResource(R.drawable.coin0);
         ivCoin.setScaleType(ImageView.ScaleType.FIT_XY);
         ivCoin.setOnClickListener(listener);
-        // set View and Layout params into container
+        // Set View and Layout params into container
         setView(ivCoin, rp);
 
         coinWidth = ivCoin.getLayoutParams().width;
@@ -38,7 +39,7 @@ class NewCoin extends AbstractItem {
     @Override
     public void drop() {
         randomValue = rangedRandom(0, 1);
-        // how many turns get coin
+        // How many turns get coin
         final int coinTurns;
         if (SettingsActivity.PREFERENCES_ANIMATION) {
             coinTurns = 11;

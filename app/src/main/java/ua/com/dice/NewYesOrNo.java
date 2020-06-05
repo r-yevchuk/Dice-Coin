@@ -13,15 +13,13 @@ import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import androidx.preference.PreferenceManager;
-
 import ua.com.dice.base.AbstractItem;
 import ua.com.dice.base.DialogBase;
 
 class NewYesOrNo extends AbstractItem {
-    private TextView tvYesOrNo;
-    private ColorStateList oldColor;
+    private final TextView tvYesOrNo;
+    private final ColorStateList oldColor;
     private Activity activity;
     private int randomValue;
 

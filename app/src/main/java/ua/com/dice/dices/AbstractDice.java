@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-
 import ua.com.dice.E_SOUND;
 import ua.com.dice.MainActivity;
 import ua.com.dice.SettingsActivity;
@@ -37,10 +36,8 @@ public abstract class AbstractDice extends AbstractItem {
 
     private void dropAll() {
         MainActivity.sound.play(!SettingsActivity.PREFERENCES_ANIMATION ? E_SOUND.DICE2 : E_SOUND.DICE1, context);
-        for (int i = 0; i < dices.size(); i++) {
-            AbstractDice dice = dices.get(i);
+        for (AbstractDice dice : dices) {
             dice.drop();
         }
     }
-
 }

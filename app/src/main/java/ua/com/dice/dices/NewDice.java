@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +12,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.preference.PreferenceManager;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import ua.com.dice.E_SOUND;
 import ua.com.dice.MainActivity;
 import ua.com.dice.R;
@@ -28,18 +22,21 @@ import ua.com.dice.SettingsActivity;
 import ua.com.dice.base.AbstractItem;
 import ua.com.dice.base.DialogBase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class NewDice extends AbstractItem{
-    private Activity activity;
-
+    @SuppressLint("StaticFieldLeak")
+    private static TextView tvTotalScores;
     private LinearLayout leftLayout, rightLayout;
     static List<AbstractDice> dices = new ArrayList<>(6);
-    private static TextView tvTotalScores;
+    private final Activity activity;
     static int totalScores;
     private Button btPlus, btMinus;
 
     // Listeners for "myToolBar" buttons, first add new dices, second delete
-    private View.OnClickListener plusDices = new View.OnClickListener() {
+    private final View.OnClickListener plusDices = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             if (dices.size() < 6) {
@@ -49,11 +46,11 @@ public class NewDice extends AbstractItem{
             }
         }
     };
-    private View.OnClickListener minusDices = new View.OnClickListener() {
+    private final View.OnClickListener minusDices = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             if (dices.size() > 0) {
-                dices.remove( dices.size() - 1 );
+                dices.remove(dices.size() - 1);
                 refreshDices(activity);
                 refreshToolBarButtons();
                 saveDicesList();
@@ -73,8 +70,6 @@ public class NewDice extends AbstractItem{
         } else {
             dices.addAll(getDicesList());
         }
-
-
 
         init(activity);
         refreshDices(activity);
@@ -103,16 +98,13 @@ public class NewDice extends AbstractItem{
         btMinus.setOnClickListener(minusDices);
     }
 
-
-
     @Override
     public void drop() {
         if (dices.size() > 0) {
             totalScores = 0;
             MainActivity.sound.play(!SettingsActivity.PREFERENCES_ANIMATION ? E_SOUND.DICE2 : E_SOUND.DICE1, context);
 
-            for (int i = 0; i < dices.size(); i++) {
-                AbstractDice dice = dices.get(i);
+            for (AbstractDice dice : dices) {
                 dice.drop();
             }
         }
@@ -128,7 +120,7 @@ public class NewDice extends AbstractItem{
         });
     }
 
-    // Fix later
+    // TODO Fix later
     private void refreshToolBarButtons(){
         btPlus.setEnabled(true);
         if (dices.size() == 6)
@@ -155,7 +147,6 @@ public class NewDice extends AbstractItem{
         setView(tv, params);
     }
 
-
      private void refreshDices(Activity activity){
         clearView();
         LinearLayout.LayoutParams paramsForLL = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 1f); //MATCH
@@ -175,13 +166,7 @@ public class NewDice extends AbstractItem{
             setView(rightLayout);
         }
 
-        //dices.clear();
-
-
-        for (int i = 1; i <= dices.size(); i++) {
-            //AbstractDice dice = new DiceSix(activity);
-            //dices.add(dice);
-
+         for (int i = 1; i <= dices.size(); i++) {
             AbstractDice tempDice = dices.get(i-1);
             if (tempDice.toString().equals("DiceSix")) {
                 dices.set(i - 1, new DiceSix(activity));
@@ -191,10 +176,8 @@ public class NewDice extends AbstractItem{
             }
             addObjToFrame(i, dices.get(i-1).getFrame());
         }
-
     }
 
-    //
     private void addObjToFrame(int i, View v) {
         if(v.getParent() != null) {
             ((ViewGroup)v.getParent()).removeView(v); // <- fix
@@ -204,10 +187,6 @@ public class NewDice extends AbstractItem{
         else
             rightLayout.addView(v);
     }
-
-
-
-
 
     private List<AbstractDice> getDicesList(){
         List<AbstractDice> dice = new ArrayList<>(6);
@@ -223,10 +202,10 @@ public class NewDice extends AbstractItem{
         return dice;
     }
 
-   private void saveDicesList(){
+   private void saveDicesList() {
        StringBuilder sb = new StringBuilder();
-       for (int i = 0; i < dices.size(); i++) {
-           String name = dices.get(i).toString();
+       for (AbstractDice dice : dices) {
+           String name = dice.toString();
            sb.append(name).append(",");
        }
        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
@@ -246,26 +225,6 @@ public class NewDice extends AbstractItem{
         alertDialog.setMessage("Add a new dice")
                 .setView(view)
                 .setCancelable(false)
-                /*.setPositiveButton("Dice Six",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dices.add(new DiceSix(activity));
-                                refreshDices(activity);
-                                refreshToolBarButtons();
-                                saveDicesList();
-                                dialog.cancel();
-                            }
-                        })
-                .setNeutralButton("Dice Twelve",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dices.add(new DiceTwelve(activity));
-                                refreshDices(activity);
-                                refreshToolBarButtons();
-                                saveDicesList();
-                                dialog.cancel();
-                            }
-                        })*/
                 .setNegativeButton("Cancel",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -291,6 +250,5 @@ public class NewDice extends AbstractItem{
         };
         cl0.setOnClickListener(dialogListener);
         cl1.setOnClickListener(dialogListener);
-
     }
 }

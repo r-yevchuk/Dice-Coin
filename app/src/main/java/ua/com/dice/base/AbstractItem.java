@@ -18,7 +18,7 @@ public abstract class AbstractItem {
         }
     };
     protected Context context;
-    private LinearLayout container;
+    private final LinearLayout container;
 
     public AbstractItem(Context context) {
         this.context = context;
@@ -70,5 +70,4 @@ public abstract class AbstractItem {
         float d = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * d);
     }
-
 }

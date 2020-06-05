@@ -156,9 +156,6 @@ class NewNumbers extends AbstractItem {
                     };
                     eFirst.setFilters(new InputFilter[]{filter, new InputFilter.LengthFilter(4)});
                     eLast.setFilters(new InputFilter[]{filter, new InputFilter.LengthFilter(4)});
-                    // set max Length 4 symbols
-                    //eFirst.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});
-                    //eLast.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});
                 }
             };
 
@@ -195,9 +192,6 @@ class NewNumbers extends AbstractItem {
                 public void onClick(DialogInterface dialog, int arg1) {
                 }
             });
-            // Create the AlertDialog object and return it
-            //Dialog dialog = builder.create();
-            //dialog.getWindow().setBackgroundDrawableResource(R.color.light_gray);
             return builder.create();
         }
     }

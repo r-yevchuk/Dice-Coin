@@ -10,22 +10,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.preference.PreferenceManager;
-
 import com.google.android.material.navigation.NavigationView;
-
 import ua.com.dice.base.AbstractItem;
 import ua.com.dice.dices.NewDice;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-
     private DrawerLayout drawer;
     private RelativeLayout frame;
     private ImageButton bt_drop;
@@ -130,7 +126,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        // TODO REWORK LATER !!!!
         frame.removeAllViews();
         clearMenuButtons();
         int id = menuItem.getItemId();

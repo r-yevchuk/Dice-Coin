@@ -11,22 +11,20 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
-
-import java.io.Serializable;
-
 import ua.com.dice.R;
 import ua.com.dice.SettingsActivity;
+
+import java.io.Serializable;
 
 import static ua.com.dice.dices.NewDice.dices;
 
 public class DiceTwelve extends AbstractDice implements Serializable {
-    private ImageView ivDice;
-    private TextView tvDice;
+    private final ImageView ivDice;
+    private final TextView tvDice;
     private int random, prevRandom;
-    private ImageButton btDrop;
-    private Activity activity;
+    private final ImageButton btDrop;
+    private final Activity activity;
 
     DiceTwelve(Activity activity) {
         super(activity);
@@ -38,7 +36,6 @@ public class DiceTwelve extends AbstractDice implements Serializable {
         ivDice.setOnClickListener(dropAllListener);
         LinearLayout.LayoutParams ivParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 1f); //MATCH
         int margin = dpToPx(SettingsActivity.DICES_TWELVE_MARGINS[dices.size()]);
-        //ivParams.setMargins(margin, margin, margin, margin);
         ivDice.setLayoutParams(ivParams);
         ivDice.setPadding(margin, margin, margin, margin);
         dicesFrame.addView(ivDice);
@@ -50,7 +47,6 @@ public class DiceTwelve extends AbstractDice implements Serializable {
         tvDice.setLayoutParams(ivParams);
         tvDice.setPadding(margin, margin, (margin + dpToPx(8)), margin);
         tvDice.setTextColor(Color.BLUE);
-        //tvDice.setPadding(0, 0, dpToPx(8), 0);
         dicesFrame.addView(tvDice);
     }
 
@@ -64,7 +60,6 @@ public class DiceTwelve extends AbstractDice implements Serializable {
         thread.start();
         Handler handler = new Handler(thread.getLooper());
 
-        // dices turns
         int k = SettingsActivity.PREFERENCES_ANIMATION ? 6 : 2;
 
         for (int i = 1; i < k; i++) {
@@ -75,17 +70,13 @@ public class DiceTwelve extends AbstractDice implements Serializable {
                 public void run() {
                     final int angle = rangedRandom(-180, 180);
                     random = rangedRandom(1, 12);
-                    // prevent drop same numbers
-                    if (prevRandom == random)
-                        random = rangedRandom(1, 12);
-                    prevRandom = random;
 
                     activity.runOnUiThread(new Runnable() {
                         @SuppressLint("DefaultLocale")
                         public void run() {
                             ivDice.setRotation(angle);
                             tvDice.setRotation(angle);
-                            if (random == 6){
+                            if (random == 6) {
                                 tvDice.setText(String.format("%d.", random));
                             } else {
                                 tvDice.setText(String.valueOf(random));
