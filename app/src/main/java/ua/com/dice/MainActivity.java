@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SettingsActivity.PREFERENCES_SHAKE = prefs.getBoolean("shake", true);
         SettingsActivity.PREFERENCES_VIBRATION = prefs.getBoolean("vibration", true);
         //get other const
+        SettingsActivity.PREFERENCES_ARROW_DIRECTIONS = prefs.getInt("arrowDirections", 4);
         SettingsActivity.PREFERENCES_NUMBERS_RANGE_FIRST = prefs.getInt("first", 0);
         SettingsActivity.PREFERENCES_NUMBERS_RANGE_LAST = prefs.getInt("last", 100);
         SettingsActivity.PREFERENCES_DRAWER_CHECKED_ITEM = prefs.getInt("checkedItem", R.id.item0);

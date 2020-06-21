@@ -16,6 +16,7 @@ public class SettingsActivity extends PreferenceActivity {
     public static boolean PREFERENCES_SHAKE;
     public static boolean PREFERENCES_VIBRATION;
 
+    public static int PREFERENCES_ARROW_DIRECTIONS;
     public static int PREFERENCES_NUMBERS_RANGE_FIRST;
     public static int PREFERENCES_NUMBERS_RANGE_LAST;
 
