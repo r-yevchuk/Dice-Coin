@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Classic" parent="@style/ActivityTheme">
+        <item name="frameColor">#66CDAA</item>
+        <item name="toolbarColor">#43CD80</item>
+    </style>
+
+    <style name="Day" parent="@style/ActivityTheme">
+        <item name="frameColor">#D3D3D3</item>
+        <item name="toolbarColor">#A9A9A9</item>
+    </style>
+
+    <style name="Night" parent="@style/ActivityTheme">
+        <item name="frameColor">#696969</item>
+        <item name="toolbarColor">#808080</item>
+    </style>
+
+
+
+</resources>

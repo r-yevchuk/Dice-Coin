@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+            android:key="theme"
+            android:title="Theme"
+            android:defaultValue="Day"
+            android:summary="%s"
+            android:entries="@array/themes_list"
+            android:entryValues="@array/themes_list"
+            android:dialogTitle="Select App theme" />
     <CheckBoxPreference
         android:defaultValue="true"
         android:key="animation"
@@ -20,4 +28,5 @@
         android:key="vibration"
         android:summary="The vibration effect during roll."
         android:title="Vibration"/>
+
 </PreferenceScreen>

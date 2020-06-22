@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSettings();
         super.onCreate(savedInstanceState);
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         setContentView(R.layout.activity_main);
-        getSettings();
 
         frame = findViewById(R.id.frame);
         drawer = findViewById(R.id.drawer_layout);
@@ -70,6 +70,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         sound = new Sound(this);
     }
 
+    public int getResourceId(String pVariableName, String pResourcename, String pPackageName) {
+        try {
+            return getResources().getIdentifier(pVariableName, pResourcename, pPackageName);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
     @Override
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -80,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void onSettingsClick(View v) {
+        finish();
         startActivity(new Intent(this, SettingsActivity.class));
     }
 
@@ -89,9 +99,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void onResume() {
+        getSettings();
         super.onResume();
         mSensorManager.registerListener(mShakeActivity, mAccelerometer,	SensorManager.SENSOR_DELAY_UI);
-        getSettings();
     }
 
     public void onPause() {
@@ -102,6 +112,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void getSettings() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         //get menu values
+        SettingsActivity.PREFERENCES_THEME = prefs.getString("theme", "Day");
         SettingsActivity.PREFERENCES_ANIMATION = prefs.getBoolean("animation", true);
         SettingsActivity.PREFERENCES_SOUND = prefs.getBoolean("sound", true);
         SettingsActivity.PREFERENCES_SHAKE = prefs.getBoolean("shake", true);
@@ -113,6 +124,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SettingsActivity.PREFERENCES_DRAWER_CHECKED_ITEM = prefs.getInt("checkedItem", R.id.item0);
         SettingsActivity.PREFERENCES_ADVANCED_YES_OR_NO = prefs.getBoolean("advancedYesOrNo", false);
         SettingsActivity.PREFERENCES_FIRST_START = prefs.getBoolean("firstStart", true);
+
+        int resID = getResourceId(SettingsActivity.PREFERENCES_THEME, "style", getPackageName());
+        setTheme(resID);
     }
 
     private void clearMenuButtons() {

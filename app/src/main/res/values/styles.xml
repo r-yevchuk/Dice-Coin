@@ -8,13 +8,10 @@
 
     <!-- Activities theme -->
     <style name="ActivityTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
+<!--        <item name="android:windowContentOverlay">@null</item>-->
     </style>
 
     <!-- Preference Activity theme -->
@@ -23,11 +20,6 @@
         <item name="colorAccent">@color/colorPrimary</item>
         <item name="android:selectableItemBackground">@color/grey</item>
     </style>
-
-    <!-- Need? -->
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
 
     <style name="DividerHorizontal">
         <item name="android:background">@color/mBlack</item>
@@ -39,7 +31,4 @@
     <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:background">@color/light_gray</item>
     </style>
-
-
-
 </resources>
