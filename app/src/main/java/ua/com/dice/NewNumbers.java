@@ -14,28 +14,20 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
+import ua.com.dice.base.AbstractItem;
+import ua.com.dice.base.DialogBase;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import ua.com.dice.base.AbstractItem;
-import ua.com.dice.base.DialogBase;
-
 class NewNumbers extends AbstractItem {
-    private TextView tvNumbers;
+    private final TextView tvNumbers;
 
     NewNumbers(Activity activity) {
         super(activity);
@@ -101,7 +93,6 @@ class NewNumbers extends AbstractItem {
             View dialogView = inflater.inflate(R.layout.activity_alert_dialog, null);
             builder.setView(dialogView)
                     .setCancelable(false);
-            DialogBase.changeBackground(dialogView.findViewById(R.id.ll));
             tvFirst = dialogView.findViewById(R.id.tvFirst);
             tvLast = dialogView.findViewById(R.id.tvLast);
             eFirst = dialogView.findViewById(R.id.eFirst);

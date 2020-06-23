@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Classic" parent="@style/ActivityTheme">
-        <item name="frameColor">#66CDAA</item>
-        <item name="toolbarColor">#43CD80</item>
+        <item name="frameColor">#66cdaa</item>
+        <item name="toolbarColor">#43cd80</item>
+        <item name="drawerColor">#d3d3d3</item>
+        <item name="textColor">#000000</item>
     </style>
 
     <style name="Day" parent="@style/ActivityTheme">
-        <item name="frameColor">#D3D3D3</item>
-        <item name="toolbarColor">#A9A9A9</item>
+        <item name="frameColor">#a9a9a9</item>
+        <item name="toolbarColor">#d3d3d3</item>
+        <item name="drawerColor">#d3d3d3</item>
+        <item name="textColor">#000000</item>
     </style>
 
     <style name="Night" parent="@style/ActivityTheme">
-        <item name="frameColor">#696969</item>
-        <item name="toolbarColor">#808080</item>
+        <item name="frameColor">#808080</item>
+        <item name="toolbarColor">#696969</item>
+        <item name="drawerColor">#808080</item>
+        <item name="textColor">#eee9e9</item>
     </style>
 
 

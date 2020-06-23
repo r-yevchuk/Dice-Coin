@@ -2,4 +2,6 @@
 <resources>
     <attr name="frameColor" format="reference|color" />
     <attr name="toolbarColor" format="reference|color" />
+    <attr name="drawerColor" format="reference|color" />
+    <attr name="textColor" format="reference|color" />
 </resources>
