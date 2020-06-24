@@ -11,12 +11,12 @@
     <CheckBoxPreference
         android:defaultValue="true"
         android:key="animation"
-        android:summary="The animation show when rolling dice."
+        android:summary="Show animation when rolling."
         android:title="Animation"/>
     <CheckBoxPreference
         android:defaultValue="true"
         android:key="sound"
-        android:summary="The sound heard while rolling dice."
+        android:summary="Enable sound effects."
         android:title="Rolling sound"/>
     <CheckBoxPreference
         android:defaultValue="true"
@@ -26,7 +26,7 @@
     <CheckBoxPreference
         android:defaultValue="true"
         android:key="vibration"
-        android:summary="The vibration effect during roll."
+        android:summary="Enable vibration effect."
         android:title="Vibration"/>
 
 </PreferenceScreen>

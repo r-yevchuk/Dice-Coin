@@ -18,7 +18,7 @@
         <item name="frameColor">#808080</item>
         <item name="toolbarColor">#696969</item>
         <item name="drawerColor">#808080</item>
-        <item name="textColor">#eee9e9</item>
+        <item name="textColor">#000000</item>
     </style>
 
 

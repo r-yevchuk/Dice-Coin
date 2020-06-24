@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SettingsActivity.PREFERENCES_ANIMATION = prefs.getBoolean("animation", true);
         SettingsActivity.PREFERENCES_SOUND = prefs.getBoolean("sound", true);
         SettingsActivity.PREFERENCES_SHAKE = prefs.getBoolean("shake", true);
-        SettingsActivity.PREFERENCES_VIBRATION = prefs.getBoolean("vibration", true);
+        SettingsActivity.PREFERENCES_VIBRATION = prefs.getBoolean("vibration", false);
         //get other const
         SettingsActivity.PREFERENCES_ARROW_DIRECTIONS = prefs.getInt("arrowDirections", 4);
         SettingsActivity.PREFERENCES_NUMBERS_RANGE_FIRST = prefs.getInt("first", 0);
