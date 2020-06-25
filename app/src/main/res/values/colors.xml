@@ -5,21 +5,16 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <!-- Other colors -->
+    <!-- Drop button -->
     <color name="dropButtonPressedColor">#ef5350</color>
-    <color name="prefs_background">#D3D3D3</color>
-
-    <color name="snow2">#eee9e9</color>
     <color name="light_coral">#ff8080</color>
-    <color name="cornflower_blue">#36648B</color>
-    <color name="grey">#BEBEBE</color>
 
-    <!-- Component colors  -->
-    <color name="drop">#d5d5ff</color>
+    <!-- Other colors -->
+    <color name="prefs_background">#D3D3D3</color>
+    <color name="dialog_background_for_old_devices">#F5F5F5</color>
 
     <!-- Yes or No text color -->
     <color name="brown">#A52A2A</color>
-    <color name="olive_drab4">#698B22</color>
 
     <!-- Divider color -->
     <color name="mBlack">#000000</color>

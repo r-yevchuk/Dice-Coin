@@ -91,6 +91,7 @@ class NewNumbers extends AbstractItem {
             builder.setTitle("Custom range");
             LayoutInflater inflater = getActivity().getLayoutInflater();
             View dialogView = inflater.inflate(R.layout.activity_alert_dialog, null);
+            DialogBase.changeBackground(dialogView);
             builder.setView(dialogView)
                     .setCancelable(false);
             tvFirst = dialogView.findViewById(R.id.tvFirst);

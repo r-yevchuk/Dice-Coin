@@ -3,7 +3,7 @@
     <ListPreference
             android:key="theme"
             android:title="Theme"
-            android:defaultValue="Day"
+            android:defaultValue="Default"
             android:summary="%s"
             android:entries="@array/themes_list"
             android:entryValues="@array/themes_list"
