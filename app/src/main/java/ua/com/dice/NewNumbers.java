@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,11 +34,11 @@ class NewNumbers extends AbstractItem {
         super(activity);
         initAdditionalMenu(activity);
 
-        RelativeLayout.LayoutParams rp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT); //MATCH
+        RelativeLayout.LayoutParams rp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         rp.addRule(RelativeLayout.CENTER_IN_PARENT);
         tvNumbers = new TextView(activity);
         tvNumbers.setText(String.valueOf(SettingsActivity.PREFERENCES_NUMBERS_RANGE_FIRST));
-        setTextSize(SettingsActivity.PREFERENCES_NUMBERS_RANGE_FIRST);
+        tvNumbers.setTextSize(TypedValue.COMPLEX_UNIT_SP, 150);
         tvNumbers.setGravity(Gravity.CENTER);
         tvNumbers.setOnClickListener(listener);
 
@@ -73,9 +74,9 @@ class NewNumbers extends AbstractItem {
 
     private void setTextSize(int randomNumber) {
         if (randomNumber >= 1000)
-            tvNumbers.setTextSize(120);
+            tvNumbers.setTextSize(TypedValue.COMPLEX_UNIT_SP, 120);
         else
-            tvNumbers.setTextSize(180);
+            tvNumbers.setTextSize(TypedValue.COMPLEX_UNIT_SP, 150);
     }
 
     // TODO Dialog rework later

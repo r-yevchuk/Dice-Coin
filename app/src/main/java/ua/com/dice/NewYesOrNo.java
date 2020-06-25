@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Handler;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
@@ -20,7 +21,7 @@ import ua.com.dice.base.DialogBase;
 class NewYesOrNo extends AbstractItem {
     private final TextView tvYesOrNo;
     private final ColorStateList oldColor;
-    private Activity activity;
+    private final Activity activity;
     private int randomValue;
 
     NewYesOrNo(Activity activity) {
@@ -33,7 +34,7 @@ class NewYesOrNo extends AbstractItem {
 
         tvYesOrNo = new TextView(context);
         tvYesOrNo.setText(context.getString(R.string.text_yes));
-        tvYesOrNo.setTextSize(160); //was 180
+        tvYesOrNo.setTextSize(TypedValue.COMPLEX_UNIT_SP, 150); //was 180
         tvYesOrNo.setGravity(Gravity.CENTER);
         tvYesOrNo.setOnClickListener(listener);
         oldColor = tvYesOrNo.getTextColors();
@@ -66,9 +67,9 @@ class NewYesOrNo extends AbstractItem {
         }
 
         if (randomValue != 0 && randomValue != 1) {
-            tvYesOrNo.setTextSize(90);
+            tvYesOrNo.setTextSize(TypedValue.COMPLEX_UNIT_SP,80);
         } else
-            tvYesOrNo.setTextSize(160);
+            tvYesOrNo.setTextSize(TypedValue.COMPLEX_UNIT_SP, 150);
 
         Answers[] answers = Answers.values();
         tvYesOrNo.setText(String.format("%s", answers[randomValue]));
