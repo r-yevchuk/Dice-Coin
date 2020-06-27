@@ -7,13 +7,11 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import androidx.annotation.NonNull;
-
-import java.io.Serializable;
-
 import ua.com.dice.R;
 import ua.com.dice.SettingsActivity;
+
+import java.io.Serializable;
 
 
 public class DiceSix extends AbstractDice implements Serializable {

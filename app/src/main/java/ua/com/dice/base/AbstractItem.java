@@ -5,10 +5,9 @@ import android.os.Vibrator;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import ua.com.dice.SettingsActivity;
 
 import java.security.SecureRandom;
-
-import ua.com.dice.SettingsActivity;
 
 public abstract class AbstractItem {
     public View.OnClickListener listener = new View.OnClickListener() {
