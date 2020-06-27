@@ -1,26 +1,38 @@
 package ua.com.dice;
 
-import android.content.Context;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-
+import androidx.preference.PreferenceManager;
 import ua.com.dice.base.AbstractItem;
+import ua.com.dice.base.DialogBase;
+
+import java.util.Arrays;
 
 class NewArrow extends AbstractItem {
-    private ImageView ivArrow;
+    private final ImageView ivArrow;
+    private final Activity activity;
 
-    NewArrow(Context context) {
-        super(context);
+
+    NewArrow(Activity activity) {
+        super(activity);
+        this.activity = activity;
+        initAdditionalMenu();
         // Arrow layout params
         RelativeLayout.LayoutParams rp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
         int arrowMargin = dpToPx(40);
         rp.setMargins(arrowMargin, arrowMargin, arrowMargin, arrowMargin);
         rp.addRule(RelativeLayout.CENTER_IN_PARENT);
 
-        ivArrow = new ImageView(context);
+        ivArrow = new ImageView(activity);
         ivArrow.setImageResource(R.drawable.arrow);
         ivArrow.setOnClickListener(listener);
         // set View and Layout params into container
@@ -29,7 +41,7 @@ class NewArrow extends AbstractItem {
 
     @Override
     public void drop() {
-        int randomNumber = rangedRandom(0, 8); //36 72
+        int randomNumber = rangedRandom(0, SettingsActivity.PREFERENCES_ARROW_DIRECTIONS); //36 72
         int animDuration;
         int vibrationDuration;
 
@@ -44,16 +56,53 @@ class NewArrow extends AbstractItem {
             MainActivity.sound.play(E_SOUND.ARROW2, context);
         }
 
-        // Animate Arrow if enabled
-        RotateAnimation anim = new RotateAnimation(0, (randomNumber * 45) + 360,
+        int toDegrees = randomNumber * (360 / SettingsActivity.PREFERENCES_ARROW_DIRECTIONS) + 360;
+        RotateAnimation anim = new RotateAnimation(0, toDegrees,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
         anim.setInterpolator(new LinearInterpolator());
-        anim.setDuration(animDuration); //500
+        anim.setDuration(animDuration);
         anim.setFillAfter(true);
         ivArrow.startAnimation(anim);
 
-        // Vibrate
         vibrate(vibrationDuration);
+    }
+
+    private void initAdditionalMenu() {
+        Button btAdditionalMenu = activity.findViewById(R.id.bt_range);
+        btAdditionalMenu.setVisibility(View.VISIBLE);
+        btAdditionalMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialog();
+            }
+        });
+    }
+
+    private void showDialog() {
+        final String[] arrowDirections = {"4", "8", "12"};
+
+        AlertDialog.Builder alertDialog = DialogBase.getBuilder(context);
+        alertDialog.setTitle("Number of arrow directions:")
+                .setCancelable(false)
+                .setSingleChoiceItems(arrowDirections,
+                        Arrays.asList(arrowDirections).indexOf("" + SettingsActivity.PREFERENCES_ARROW_DIRECTIONS),
+                        new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        SettingsActivity.PREFERENCES_ARROW_DIRECTIONS = Integer.parseInt(arrowDirections[which]);
+                    }
+                })
+                .setPositiveButton("Ok",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        SharedPreferences.Editor editor = prefs.edit();
+                        editor.putInt("arrowDirections", SettingsActivity.PREFERENCES_ARROW_DIRECTIONS);
+                        editor.apply();
+                        dialog.cancel();
+                    }
+                });
+
+        alertDialog.show();
     }
 }

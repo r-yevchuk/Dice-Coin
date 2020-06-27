@@ -218,9 +218,7 @@ public class NewDice extends AbstractItem{
         @SuppressLint("InflateParams") View view = activity.getLayoutInflater().inflate(R.layout.activity_add_dice, null);
         ConstraintLayout cl0 = view.findViewById(R.id.cl0);
         ConstraintLayout cl1 = view.findViewById(R.id.cl1);
-        DialogBase.changeBackground(cl0);
-        DialogBase.changeBackground(cl1);
-
+        DialogBase.changeBackground(view);
         AlertDialog.Builder alertDialog = DialogBase.getBuilder(context);
         alertDialog.setMessage("Add a new dice")
                 .setView(view)

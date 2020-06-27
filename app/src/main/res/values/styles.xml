@@ -8,26 +8,17 @@
 
     <!-- Activities theme -->
     <style name="ActivityTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
     </style>
 
     <!-- Preference Activity theme -->
-    <style name="PrefsTheme" parent="ActivityTheme">
-        <item name="android:windowBackground">@color/light_gray</item>
-        <item name="colorAccent">@color/colorPrimary</item>
-        <item name="android:selectableItemBackground">@color/grey</item>
+    <style name="PrefsTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowBackground">@color/prefs_background</item>
+        <item name="android:textColor">?textColor</item>
+        <item name="colorAccent">@color/mBlack</item>
     </style>
-
-    <!-- Need? -->
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
 
     <style name="DividerHorizontal">
         <item name="android:background">@color/mBlack</item>
@@ -37,9 +28,16 @@
 
     <!-- Dialog Theme -->
     <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog">
-        <item name="android:background">@color/light_gray</item>
+        <item name="colorAccent">@color/mBlack</item>
+        <item name="android:background">?drawerColor</item>
+        <item name="android:textColorPrimary">?textColor</item>
+        <item name="android:textColor">?textColor</item>
+        <item name="android:textCursorDrawable">?textColor</item>
     </style>
 
-
-
+    <style name="EditTextTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">?textColor</item>
+        <item name="colorControlActivated">?textColor</item>
+        <item name="colorControlHighlight">?textColor</item>
+    </style>
 </resources>

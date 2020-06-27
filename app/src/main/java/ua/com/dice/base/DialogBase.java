@@ -22,8 +22,8 @@ public class DialogBase {
     }
 
     public static void changeBackground(View v){
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
-          v.setBackgroundResource(R.color.light_gray);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            v.setBackgroundResource(R.color.dialog_background_for_old_devices);
         }
     }
 }

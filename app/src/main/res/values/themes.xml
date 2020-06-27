@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Classic" parent="@style/ActivityTheme">
+        <item name="frameColor">#66cdaa</item>
+        <item name="toolbarColor">#43cd80</item>
+        <item name="drawerColor">#d3d3d3</item>
+        <item name="textColor">#000000</item>
+    </style>
+
+    <style name="Default" parent="@style/ActivityTheme">
+        <item name="frameColor">#bfbfbf</item>
+        <item name="toolbarColor">#d3d3d3</item>
+        <item name="drawerColor">#d3d3d3</item>
+        <item name="textColor">#000000</item>
+    </style>
+
+    <style name="Grey" parent="@style/ActivityTheme">
+        <item name="frameColor">#8c8c8c</item>
+        <item name="toolbarColor">#999999</item>
+        <item name="drawerColor">#d3d3d3</item>
+        <item name="textColor">#000000</item>
+    </style>
+
+<!--    <style name="Night" parent="@style/ActivityTheme">-->
+<!--        <item name="frameColor">#8c8c8c</item>-->
+<!--        <item name="toolbarColor">#999999</item>-->
+<!--        <item name="drawerColor">#8c8c8c</item>-->
+<!--        <item name="textColor">#000000</item>-->
+<!--    </style>-->
+
+</resources>

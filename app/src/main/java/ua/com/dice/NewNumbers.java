@@ -10,42 +10,35 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
+import ua.com.dice.base.AbstractItem;
+import ua.com.dice.base.DialogBase;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import ua.com.dice.base.AbstractItem;
-import ua.com.dice.base.DialogBase;
-
 class NewNumbers extends AbstractItem {
-    private TextView tvNumbers;
+    private final TextView tvNumbers;
 
     NewNumbers(Activity activity) {
         super(activity);
         initAdditionalMenu(activity);
 
-        RelativeLayout.LayoutParams rp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT); //MATCH
+        RelativeLayout.LayoutParams rp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         rp.addRule(RelativeLayout.CENTER_IN_PARENT);
         tvNumbers = new TextView(activity);
         tvNumbers.setText(String.valueOf(SettingsActivity.PREFERENCES_NUMBERS_RANGE_FIRST));
-        setTextSize(SettingsActivity.PREFERENCES_NUMBERS_RANGE_FIRST);
+        tvNumbers.setTextSize(TypedValue.COMPLEX_UNIT_SP, 150);
         tvNumbers.setGravity(Gravity.CENTER);
         tvNumbers.setOnClickListener(listener);
 
@@ -81,9 +74,9 @@ class NewNumbers extends AbstractItem {
 
     private void setTextSize(int randomNumber) {
         if (randomNumber >= 1000)
-            tvNumbers.setTextSize(120);
+            tvNumbers.setTextSize(TypedValue.COMPLEX_UNIT_SP, 120);
         else
-            tvNumbers.setTextSize(180);
+            tvNumbers.setTextSize(TypedValue.COMPLEX_UNIT_SP, 150);
     }
 
     // TODO Dialog rework later
@@ -99,9 +92,9 @@ class NewNumbers extends AbstractItem {
             builder.setTitle("Custom range");
             LayoutInflater inflater = getActivity().getLayoutInflater();
             View dialogView = inflater.inflate(R.layout.activity_alert_dialog, null);
+            DialogBase.changeBackground(dialogView);
             builder.setView(dialogView)
                     .setCancelable(false);
-            DialogBase.changeBackground(dialogView.findViewById(R.id.ll));
             tvFirst = dialogView.findViewById(R.id.tvFirst);
             tvLast = dialogView.findViewById(R.id.tvLast);
             eFirst = dialogView.findViewById(R.id.eFirst);
