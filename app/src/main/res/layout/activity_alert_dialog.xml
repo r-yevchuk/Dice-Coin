@@ -5,7 +5,7 @@
               android:id="@+id/ll"
               android:layout_width="match_parent"
               android:layout_height="150dp"
-              android:background="?drawerColor"
+              android:background="?attr/drawerColor"
               android:orientation="horizontal">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,7 +24,7 @@
             android:maxLength="4"
             android:textSize="36sp"
             android:visibility="invisible"
-            android:textColor="?textColor"
+            android:textColor="?attr/textColor"
             android:theme="@style/EditTextTheme"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,7 @@
             android:gravity="center_vertical|end"
             android:textSize="50sp"
             android:visibility="visible"
-            android:textColor="?textColor"
+            android:textColor="?attr/textColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -52,7 +52,7 @@
         android:gravity="center"
         android:text="-"
         android:textSize="50sp"
-        android:textColor="?textColor"
+        android:textColor="?attr/textColor"
         tools:ignore="HardcodedText" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -70,7 +70,7 @@
             android:maxLength="4"
             android:textSize="36sp"
             android:visibility="invisible"
-            android:textColor="?textColor"
+            android:textColor="?attr/textColor"
             android:theme="@style/EditTextTheme"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +84,7 @@
             android:gravity="center|start"
             android:textSize="50sp"
             android:visibility="visible"
-            android:textColor="?textColor"
+            android:textColor="?attr/textColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

@@ -16,7 +16,7 @@
     <!-- Preference Activity theme -->
     <style name="PrefsTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowBackground">@color/prefs_background</item>
-        <item name="android:textColor">?textColor</item>
+        <item name="android:textColor">?attr/textColor</item>
         <item name="colorAccent">@color/mBlack</item>
     </style>
 
@@ -29,15 +29,15 @@
     <!-- Dialog Theme -->
     <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">@color/mBlack</item>
-        <item name="android:background">?drawerColor</item>
-        <item name="android:textColorPrimary">?textColor</item>
-        <item name="android:textColor">?textColor</item>
-        <item name="android:textCursorDrawable">?textColor</item>
+        <item name="android:background">?attr/drawerColor</item>
+        <item name="android:textColorPrimary">?attr/textColor</item>
+        <item name="android:textColor">?attr/textColor</item>
+        <item name="android:textCursorDrawable">?attr/textColor</item>
     </style>
 
     <style name="EditTextTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorControlNormal">?textColor</item>
-        <item name="colorControlActivated">?textColor</item>
-        <item name="colorControlHighlight">?textColor</item>
+        <item name="colorControlNormal">?attr/textColor</item>
+        <item name="colorControlActivated">?attr/textColor</item>
+        <item name="colorControlHighlight">?attr/textColor</item>
     </style>
 </resources>

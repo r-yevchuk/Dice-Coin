@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -45,12 +46,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         // TODO how to fix this ???
-        if (!SettingsActivity.PREFERENCES_FIRST_START) {
-            navigationView.getMenu().findItem(SettingsActivity.PREFERENCES_DRAWER_CHECKED_ITEM).setChecked(true);
-            onNavigationItemSelected(navigationView.getMenu().findItem(SettingsActivity.PREFERENCES_DRAWER_CHECKED_ITEM));
-        } else {
-            navigationView.getMenu().getItem(0).setChecked(true);
-            onNavigationItemSelected(navigationView.getMenu().getItem(0));
+        Menu menu = navigationView.getMenu();
+        if (menu != null) {
+            if (!SettingsActivity.PREFERENCES_FIRST_START) {
+                menu.findItem(SettingsActivity.PREFERENCES_DRAWER_CHECKED_ITEM).setChecked(true);
+                onNavigationItemSelected(menu.findItem(SettingsActivity.PREFERENCES_DRAWER_CHECKED_ITEM));
+            } else {
+                navigationView.setCheckedItem(R.id.item0);
+                onNavigationItemSelected(menu.getItem(0));
+            }
         }
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -70,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         sound = new Sound(this);
     }
 
-    public int getResourceId(String pVariableName, String pResourcename, String pPackageName) {
+    private int getResourceId(String pVariableName, String pResourcename, String pPackageName) {
         try {
             return getResources().getIdentifier(pVariableName, pResourcename, pPackageName);
         } catch (Exception e) {
@@ -112,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void getSettings() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         //get menu values
-        SettingsActivity.PREFERENCES_THEME = prefs.getString("theme", "Day");
+        SettingsActivity.PREFERENCES_THEME = prefs.getString("theme", "Default");
         SettingsActivity.PREFERENCES_ANIMATION = prefs.getBoolean("animation", true);
         SettingsActivity.PREFERENCES_SOUND = prefs.getBoolean("sound", true);
         SettingsActivity.PREFERENCES_SHAKE = prefs.getBoolean("shake", true);

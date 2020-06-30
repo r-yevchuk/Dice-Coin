@@ -38,7 +38,7 @@ class NewNumbers extends AbstractItem {
         rp.addRule(RelativeLayout.CENTER_IN_PARENT);
         tvNumbers = new TextView(activity);
         tvNumbers.setText(String.valueOf(SettingsActivity.PREFERENCES_NUMBERS_RANGE_FIRST));
-        tvNumbers.setTextSize(TypedValue.COMPLEX_UNIT_SP, 150);
+        tvNumbers.setTextSize(TypedValue.COMPLEX_UNIT_SP, 170);
         tvNumbers.setGravity(Gravity.CENTER);
         tvNumbers.setOnClickListener(listener);
 
@@ -76,7 +76,7 @@ class NewNumbers extends AbstractItem {
         if (randomNumber >= 1000)
             tvNumbers.setTextSize(TypedValue.COMPLEX_UNIT_SP, 120);
         else
-            tvNumbers.setTextSize(TypedValue.COMPLEX_UNIT_SP, 150);
+            tvNumbers.setTextSize(TypedValue.COMPLEX_UNIT_SP, 170);
     }
 
     // TODO Dialog rework later
