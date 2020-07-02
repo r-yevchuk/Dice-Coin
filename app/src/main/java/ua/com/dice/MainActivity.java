@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private ShakeActivity mShakeActivity;
+    private NavigationView navigationView;
+
     public static Sound sound;
 
     @Override
@@ -43,19 +45,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer = findViewById(R.id.drawer_layout);
         bt_drop = findViewById(R.id.bt_drop);
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        // TODO how to fix this ???
-        Menu menu = navigationView.getMenu();
-        if (menu != null) {
-            if (!SettingsActivity.PREFERENCES_FIRST_START) {
-                menu.findItem(SettingsActivity.PREFERENCES_DRAWER_CHECKED_ITEM).setChecked(true);
-                onNavigationItemSelected(menu.findItem(SettingsActivity.PREFERENCES_DRAWER_CHECKED_ITEM));
-            } else {
-                navigationView.setCheckedItem(R.id.item0);
-                onNavigationItemSelected(menu.getItem(0));
-            }
-        }
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         if (mSensorManager != null) {
@@ -72,6 +63,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
         sound = new Sound(this);
+    }
+
+    public void initMenu(Menu menu) {
+        if (menu != null) {
+            if (!SettingsActivity.PREFERENCES_FIRST_START) {
+                menu.findItem(SettingsActivity.PREFERENCES_DRAWER_CHECKED_ITEM).setChecked(true);
+                onNavigationItemSelected(menu.findItem(SettingsActivity.PREFERENCES_DRAWER_CHECKED_ITEM));
+            } else {
+                UpdateReceiver.clearPreferences(this);
+                UpdateReceiver.deleteCache(this);
+                getSettings();
+                menu.getItem(0).setChecked(true);
+                onNavigationItemSelected(menu.getItem(0));
+            }
+        }
     }
 
     private int getResourceId(String pVariableName, String pResourcename, String pPackageName) {
@@ -105,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onResume() {
         getSettings();
         super.onResume();
+        initMenu(navigationView.getMenu());
         mSensorManager.registerListener(mShakeActivity, mAccelerometer,	SensorManager.SENSOR_DELAY_UI);
     }
 

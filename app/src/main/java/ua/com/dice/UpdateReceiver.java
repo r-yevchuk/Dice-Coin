@@ -13,12 +13,16 @@ public class UpdateReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         // Clear settings
+        clearPreferences(context);
+        // Clear cache
+        deleteCache(context);
+    }
+
+    public static void clearPreferences(Context context){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
         editor.clear();
         editor.apply();
-        // Clear cache
-        deleteCache(context);
     }
 
     public static void deleteCache(Context context) {
